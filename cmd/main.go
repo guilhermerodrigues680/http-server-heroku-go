@@ -12,6 +12,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.RemoteAddr)
+	log.Println(r.Header)
 	fmt.Fprint(w, "Ola direto do heroku")
 }
 
