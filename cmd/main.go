@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -15,8 +16,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
-	addr := ":8082"
+	port := os.Getenv("PORT")
+	addr := ":" + port
 	http.HandleFunc("/", handler)
 	log.Printf("Servidor iniciado. IP -> %s", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
